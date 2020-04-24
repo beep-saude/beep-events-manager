@@ -9,8 +9,10 @@ gem "beep-events_manager", :github => "beep-saude/beep-events-manager", :tag => 
 ```
 Criando o database
 ```sql
-CREATE DATABASE beep_events
-CREATE TABLE events (id bigserial primary key, object_id integer, date timestamp, event_name varchar(100), event_data json, object_domain varchar(30), object_type varchar(30))
+CREATE DATABASE beep_events;
+CREATE TABLE events (id bigserial primary key, object_id integer, date timestamp, event_name varchar(100), event_data json, object_domain varchar(30), object_type varchar(30));
+ALTER TABLE events ALTER COLUMN object_domain TYPE varchar(100);
+ALTER TABLE events ALTER COLUMN object_type TYPE varchar(100);
 ```
 crie o arquivo de configuração no initializer event_manager_config.rb
 ```ruby
