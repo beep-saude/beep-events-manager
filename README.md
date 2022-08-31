@@ -14,6 +14,7 @@ CREATE TABLE events (id bigserial primary key, object_id integer, date timestamp
 ALTER TABLE events ALTER COLUMN object_domain TYPE varchar(100);
 ALTER TABLE events ALTER COLUMN object_type TYPE varchar(100);
 CREATE INDEX CONCURRENTLY events_object_id_and_object_type_idx ON events(object_id, object_type);
+CREATE INDEX CONCURRENTLY events_date_idx ON events(date);
 ```
 crie o arquivo de configuração no initializer event_manager_config.rb
 ```ruby
