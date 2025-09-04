@@ -10,6 +10,7 @@ gem "beep-events_manager", :github => "beep-saude/beep-events-manager", :tag => 
 Criando o database
 ```sql
 CREATE DATABASE beep_events;
+\c beep_events;
 CREATE TABLE events (id bigserial primary key, object_id integer, date timestamp, event_name varchar(100), event_data jsonb, object_domain varchar(30), object_type varchar(30));
 ALTER TABLE events ALTER COLUMN object_domain TYPE varchar(100);
 ALTER TABLE events ALTER COLUMN object_type TYPE varchar(100);
